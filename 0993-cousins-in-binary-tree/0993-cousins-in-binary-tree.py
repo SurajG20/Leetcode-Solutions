@@ -35,29 +35,25 @@ class Solution:
             
         return False
     
+class Solution:
+    def isCousins(self, root, x, y):
+        # our dfs function 
+        def dfs(node, parent, depth, val):
+            
+            if not node: # base condition
+                return
+            
+            if node.val == val: # if it is the desired node
+                return depth, parent # we return the depth and parent
+            
+            # we recursively call for both left and right subtree
+            # "OR" will give the desired value if it matches
+            return dfs(node.left, node, depth + 1, val) or dfs(node.right, node, depth + 1, val)
         
-# class Solution:
-#     def isCousins(self, root: TreeNode, x: int, y: int) -> bool:
-#         self.xDepth = -1
-#         self.yDepth = -2
-#         self.xParent = None
-#         self.yParent = None
+        dep_x, par_x = dfs(root, None, 0, x) # we get the depth and parent for x 
+        
+        dep_y, par_y = dfs(root, None, 0, y) # we get the depth and parent for y
 
-#         def dfs(root, parent, x, y, depth):
-#             if root is None: return
-#             if root.val == x:
-#                 self.xParent = parent
-#                 self.xDepth = depth
-#             elif root.val == y:
-#                 self.yParent = parent
-#                 self.yDepth = depth
-#             else:
-#                 dfs(root.left, root, x, y, depth+1)
-#                 dfs(root.right, root, x, y, depth+1)
-
-#         dfs(root, None, x, y, 0)
-#         return self.xDepth == self.yDepth and self.xParent != self.yParent        
         
-        
-        
-        
+        # check for same depth and different parent 
+        return dep_x == dep_y and par_x != par_y 
