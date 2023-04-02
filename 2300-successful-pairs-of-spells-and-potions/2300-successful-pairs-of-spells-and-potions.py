@@ -1,14 +1,20 @@
 class Solution:
     def successfulPairs(self, spells: List[int], potions: List[int], success: int) -> List[int]:
         
+        # sort the potions array
         potions.sort()
         
+        
+        # binary function 
         def binaryFunction(arr,limit):
             
-            left, right = 0,len(arr)
+            left, right = 0,len(arr) # low and high
+            
             while left < right:
                 
-                mid = left + (right - left) // 2
+                mid = left + (right - left) // 2 # middle element 
+                
+                # finding the lowest number which satisfy the condition
                 if arr[mid]*limit >= success :
                     right = mid
                 else:
@@ -21,7 +27,6 @@ class Solution:
         
         for i in range(len(spells)):
             value = binaryFunction(potions,spells[i])
-            print(value)
             res.append(len(potions)-value)
             
         return res
