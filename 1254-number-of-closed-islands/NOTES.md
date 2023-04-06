@@ -1,0 +1,3 @@
+The DFS function takes a position (i, j) and recursively checks its neighboring cells. If the cell is out of bounds or has a value of 1, it returns True. Otherwise, it marks the cell as visited and continues to recursively check its neighbors. If any of the neighboring cells are not closed islands (i.e., not completely surrounded by 1s), it returns False. If all neighbors are closed islands, it returns True.
+​
+The main function iterates through each cell in the grid and checks if it is a 0 and a closed island. If it is, it increments the count.
