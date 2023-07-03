@@ -1,0 +1,3 @@
+*Brute force using O(mn) space: *The initial approach is to start with creating another matrix to store the result. From doing that, you'll notice that we want a way to know when each row and col should be changed to zero. We don't want to prematurely change the values in the matrix to zero because as we go through it, we might change a row to 0 because of the new value.
+​
+*More optimized using O(m + n) space*: To do better, we want O(m + n). How do we go about that? Well, we really just need a way to track if any row or any col has a zero, because then that means the entire row or col has to be zero. Ok, well, then we can use an array to track the zeroes for the row and zeros for the col. Whenever we see a zero, just set that row or col to be True.
