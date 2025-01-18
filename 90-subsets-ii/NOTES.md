@@ -1,1 +1,0 @@
-# Kept the same decision tree as the first subset problem, and I used a hashmap instead to keep track of the          duplicates with a frequency.. so at each leaf node the subset should have a frequency of 1. Otherwise we do append it.
